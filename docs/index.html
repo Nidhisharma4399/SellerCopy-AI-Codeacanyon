@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>SellerCopy AI - Documentation</title>
+<style>body{font-family:system-ui,sans-serif;max-width:800px;margin:30px auto;padding:0 16px;line-height:1.6}code,pre{background:#f1f2f8;padding:2px 6px;border-radius:4px}pre{padding:12px;overflow:auto}</style></head><body>
+<h1>SellerCopy AI - Documentation</h1>
+<h2>1. Requirements</h2><ul><li>Node.js 18 or newer (VPS, or Node hosting such as Render, Railway, DigitalOcean, cPanel with Node.js App)</li><li>An API key from OpenRouter (free tier available), OpenAI or Anthropic</li><li>Optional: a Stripe account to sell credit packs</li></ul>
+<h2>2. Installation</h2><pre>npm install
+cp .env.example .env      # Windows: copy .env.example .env
+# edit .env: set JWT_SECRET (long random text) and AI_API_KEY
+npm start</pre><p>Open <code>http://localhost:3000</code>. The <strong>first account you register becomes the admin</strong>.</p>
+<h2>3. Configuration (.env)</h2><ul>
+<li><code>AI_PROVIDER</code> - <code>openrouter</code> (default), <code>openai</code> or <code>anthropic</code></li><li><code>AI_MODEL</code> - for OpenRouter's free tier use <code>openrouter/free</code></li><li>These AI values can also be changed later in the browser: <strong>Admin &rarr; Settings</strong> (overrides .env)</li><li><code>FREE_CREDITS</code> - credits given to new users</li><li><code>BASE_URL</code> - your public site URL (required for Stripe redirects)</li><li><code>STRIPE_SECRET_KEY</code>, <code>STRIPE_WEBHOOK_SECRET</code> - enable paid credit packs</li></ul>
+<h2>3b. Features</h2><ul><li>6 content types with tone and language options</li><li>Bulk CSV generation (product, features columns; max 25 rows per batch) with CSV download</li><li>History with search, copy and delete; dark mode</li><li>Admin: users, credits, site name, AI settings</li></ul><p>Note: free AI models can be slow or rate limited. For a busy production site use a paid model.</p><h2>4. Stripe setup</h2><ol><li>In Stripe Dashboard copy your Secret key into <code>.env</code>.</li><li>Developers &rarr; Webhooks &rarr; add endpoint <code>https://YOUR-DOMAIN/api/stripe/webhook</code>, event <code>checkout.session.completed</code>.</li><li>Copy the signing secret into <code>STRIPE_WEBHOOK_SECRET</code> and restart.</li></ol>
+<h2>5. Customising</h2><ul><li>Prompts/templates: <code>TEMPLATES</code> in <code>server.js</code></li><li>Prices and credit packs: <code>PACKS</code> in <code>server.js</code></li><li>Frontend source: <code>client/</code>. Edit, then run <code>cd client &amp;&amp; npm install &amp;&amp; npm run build</code> (outputs to <code>public/</code>)</li></ul>
+<h2>6. Running in production</h2><pre>npm install -g pm2
+pm2 start server.js --name sellercopy
+</pre><p>Put Nginx or Caddy in front for HTTPS. Back up <code>data.db</code> regularly.</p>
+<h2>7. Security notes</h2><p>Rate limiting, bcrypt password hashing and JWT auth are included. Always use a strong <code>JWT_SECRET</code> and HTTPS.</p>
+<h2>8. Third-party libraries</h2><p>Express, better-sqlite3, bcryptjs, jsonwebtoken, dotenv, express-rate-limit, Stripe SDK, React, Vite - all MIT licensed.</p>
+<h2>9. Support</h2><p>Use the item comments/support tab on CodeCanyon.</p></body></html>

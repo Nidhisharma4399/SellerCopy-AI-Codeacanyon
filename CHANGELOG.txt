@@ -1,0 +1,8 @@
+v1.1.0
+- OpenRouter support (free models router)
+- Bulk CSV generation
+- Admin settings panel (API key, model, site name, free credits)
+- Tone and language options, history search/delete, dark mode
+- Retry logic for rate limited AI providers
+
+v1.0.0 - Initial release

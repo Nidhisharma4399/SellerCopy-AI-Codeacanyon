@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SellerCopy AI</title>
+<style>
+:root{--bg:#f4f5fb;--card:#fff;--text:#1c1e2b;--muted:#6b7086;--line:#d5d8e6;--pri:#5b5bf0;--soft:#e8e9f8;--out:#f8f8fd}
+[data-theme=dark]{--bg:#12131a;--card:#1c1e2b;--text:#eceefb;--muted:#9aa0bd;--line:#333650;--pri:#7c7cff;--soft:#2a2d45;--out:#151723}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:900px;margin:0 auto;padding:16px}.card{background:var(--card);border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 1px 4px #0002}
+label{display:block;font-size:13px;color:var(--muted);margin-top:10px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;margin:4px 0;font:inherit;background:var(--card);color:var(--text)}
+button{background:var(--pri);color:#fff;border:0;padding:9px 16px;border-radius:8px;cursor:pointer;font:inherit}button:disabled{opacity:.5;cursor:not-allowed}
+button.ghost{background:var(--soft);color:var(--text)}button.on{background:var(--pri);color:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.tabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+pre{white-space:pre-wrap;font:inherit;background:var(--out);padding:12px;border-radius:8px;border:1px solid var(--line)}
+.err{color:#e5484d}.ok{color:#2e9e5b}.badge{background:var(--soft);padding:6px 12px;border-radius:20px;font-size:14px}.muted{color:var(--muted);font-size:13px}
+</style></head><body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body></html>
